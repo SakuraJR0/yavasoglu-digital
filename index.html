@@ -34,7 +34,7 @@
             display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border-color);
         }
 
-        .hero { padding: 80px 0 60px; text-align: center; position: relative; }
+        .hero { padding: 80px 0 40px; text-align: center; position: relative; }
         .badge {
             display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.12);
             border: 1px solid rgba(99, 102, 241, 0.3); color: #a5b4fc; padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
@@ -50,15 +50,26 @@
         }
         .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.45); }
 
-        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 60px 0; }
+        /* Metrik Sayacı */
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0 80px; text-align: center;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); padding: 24px; border-radius: 16px;
+        }
+        .stat-card h3 { font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); }
+        .stat-card p { font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; }
+
+        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 40px 0 80px; }
         .pillar-card {
             background: var(--card-bg); border: 1px solid var(--border-color); padding: 24px; border-radius: 16px; backdrop-filter: blur(10px); text-align: center; transition: 0.3s;
         }
         .pillar-card:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-5px); }
         .pillar-icon { font-size: 2rem; margin-bottom: 12px; color: var(--accent-cyan); }
 
-        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title { text-align: center; margin-bottom: 40px; }
         .section-title h2 { font-size: 2.2rem; font-weight: 800; }
+
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 80px; }
         .service-card {
             background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 36px; backdrop-filter: blur(12px); position: relative; overflow: hidden; transition: all 0.3s ease;
@@ -73,6 +84,23 @@
         .service-list { list-style: none; }
         .service-list li { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .service-list li i { color: var(--accent-emerald); font-size: 0.8rem; }
+
+        /* Vaka Çalışmaları (Portfolyo) */
+        .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 80px; }
+        .case-card {
+            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; position: relative;
+        }
+        .case-tag { font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .case-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+        .case-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
+        .case-result { background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--accent-emerald); padding: 10px 14px; border-radius: 4px; font-weight: 700; font-size: 0.9rem; color: #a7f3d0; }
+
+        /* SSS Alanı */
+        .faq-grid { max-width: 800px; margin: 0 auto 80px; display: flex; flex-direction: column; gap: 16px; }
+        .faq-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px 24px; }
+        .faq-item h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .faq-item h3 i { color: var(--accent-cyan); }
+        .faq-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
 
         .floating-whatsapp {
             position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5); z-index: 1000; text-decoration: none; transition: all 0.3s;
@@ -93,7 +121,7 @@
     <div class="glow-2"></div>
 
     <div class="container">
-        <!-- Header & Yenilenmiş Logo -->
+        <!-- Header & Logo -->
         <nav>
             <a href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
                 <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));">
@@ -131,6 +159,26 @@
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp İle Projenizi Konuşalım
             </a>
         </section>
+
+        <!-- Metrik Sayacı (Trust Badges) -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>₺1.5M+</h3>
+                <p>Yönetilen Reklam Bütçesi</p>
+            </div>
+            <div class="stat-card">
+                <h3>4.2x</h3>
+                <p>Ortalama ROAS (Reklam Getirisi)</p>
+            </div>
+            <div class="stat-card">
+                <h3>50+</h3>
+                <p>Tamamlanan Proje</p>
+            </div>
+            <div class="stat-card">
+                <h3>%98</h3>
+                <p>Müşteri Memnuniyeti</p>
+            </div>
+        </div>
 
         <!-- Güç Sütunları -->
         <div class="pillars">
@@ -205,6 +253,56 @@
                     <li><i class="fa-solid fa-check"></i> Yüksek Tıklama Alan Reklam Görselleri</li>
                     <li><i class="fa-solid fa-check"></i> Marka Dili ve Görsel Kimlik Tasarımı</li>
                 </ul>
+            </div>
+        </div>
+
+        <!-- Vaka Çalışmaları (Başarı Hikayeleri) -->
+        <div class="section-title">
+            <h2>Başarı Hikayeleri</h2>
+            <p style="color:var(--text-muted)">Partnerlerimizin dijitaldeki dönüşüm yolculukları.</p>
+        </div>
+
+        <div class="cases-grid">
+            <div class="case-card">
+                <div class="case-tag">E-Ticaret & Moda</div>
+                <h3>Reklam Maliyeti Düşüşü & Satış Artışı</h3>
+                <p>Meta reklam stratejisini sil baştan kurgulayarak yapay zeka hedefleme modelleri entegre ettik.</p>
+                <div class="case-result">Result: Bütçe %30 düştü, Satışlar 2.8x arttı</div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-tag">Hizmet Sektörü</div>
+                <h3>Nitelikli Müşteri Talebi (Lead)</h3>
+                <p>Google Ads ve A/B testli açılış sayfası ile müşteri alma sürecini otomatize ettik.</p>
+                <div class="case-result">Result: Aylık +140 Form / %65 Dönüşüm</div>
+            </div>
+
+            <div class="case-card">
+                <div class="case-tag">Yerel İşletme</div>
+                <h3>Harita & Sosyal Medya Büyümesi</h3>
+                <p>Yerel SEO ve Instagram kreatif reklamlarıyla müşteri trafiğini mağazaya yönlendirdik.</p>
+                <div class="case-result">Result: Harita Aramalarında Top 3 / %210 Ziyaretçi</div>
+            </div>
+        </div>
+
+        <!-- Sıkça Sorulan Sorular -->
+        <div class="section-title">
+            <h2>Çalışma Sürecimiz & SSS</h2>
+            <p style="color:var(--text-muted)">Şeffaf, hızlı ve sonuç odaklı hizmet anlayışımız.</p>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3><i class="fa-solid fa-circle-question"></i> Reklam hesapları kimin adına açılıyor?</h3>
+                <p>Tüm reklam hesapları ve paneller %100 sizin veya şirketinizin adına kurulur. Tam erişim hakkı sizde kalır, şeffaflık esastır.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fa-solid fa-circle-question"></i> Raporlama ne sıklıkla ve nasıl yapılıyor?</h3>
+                <p>Haftalık ve aylık bazda harcanan bütçe, tıklama, dönüşüm ve ROAS verilerini içeren anlaşılır, sade paneller üzerinden raporlama sunuyoruz.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fa-solid fa-circle-question"></i> Web tasarım ve geliştirme ne kadar sürüyor?</h3>
+                <p>İhtiyaçlarınıza göre sıfır sunucu maliyetli, modern ve hızlı landing page tasarımlarını ortalama 3 ile 5 iş günü içinde canlıya alıyoruz.</p>
             </div>
         </div>
     </div>
