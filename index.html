@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yavaşoğlu Digital | Yenilikçi & Dinamik Reklam Ajansı</title>
+
+    <!-- Open Graph (WhatsApp, Instagram, Facebook Paylaşım Kartı) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yavaşoğlu Digital | Yenilikçi & Dinamik Reklam Ajansı">
+    <meta property="og:description" content="Genç, dinamik ve yapay zeka destekli reklam yönetimi, hızlı web tasarım ve SEO çözümleri. Markanızı dijitalde büyütün.">
+    <meta property="og:url" content="https://yavasogludigital.vercel.app">
+    <meta property="og:site_name" content="Yavaşoğlu Digital">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yavaşoğlu Digital | Yenilikçi & Dinamik Reklam Ajansı">
+    <meta name="twitter:description" content="Genç, dinamik ve yapay zeka destekli reklam yönetimi, hızlı web tasarım ve SEO çözümleri.">
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -72,7 +85,7 @@
 
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 80px; }
         .service-card {
-            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 36px; backdrop-filter: blur(12px); position: relative; overflow: hidden; transition: all 0.3s ease;
+            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 36px; backdrop-filter: blur(12px); position: relative; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;
         }
         .service-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-cyan), var(--primary-glow)); opacity: 0; transition: 0.3s;
@@ -81,9 +94,14 @@
         .service-card:hover::before { opacity: 1; }
         .service-card h3 { font-size: 1.4rem; margin: 16px 0 10px; color: #fff; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
-        .service-list { list-style: none; }
+        .service-list { list-style: none; margin-bottom: 24px; }
         .service-list li { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         .service-list li i { color: var(--accent-emerald); font-size: 0.8rem; }
+
+        .service-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--accent-cyan); padding: 10px 20px; border-radius: 12px; text-decoration: none; font-size: 0.9rem; font-weight: 700; transition: all 0.3s ease;
+        }
+        .service-btn:hover { background: var(--accent-cyan); color: #080b11; }
 
         /* Vaka Çalışmaları (Portfolyo) */
         .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 80px; }
@@ -212,47 +230,67 @@
 
         <div class="services-grid">
             <div class="service-card">
-                <i class="fa-solid fa-rectangle-ad" style="font-size: 2.2rem; color: var(--accent-cyan);"></i>
-                <h3>Meta & Google Reklam Yönetimi</h3>
-                <p>Reklam bütçenizi boşa harcamadan, hedeflenmiş kitlelere ulaşarak yüksek ROAS elde etmenizi sağlıyoruz.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Yapay Zeka Destekli Hedef Kitle Analizi</li>
-                    <li><i class="fa-solid fa-check"></i> Satış & Lead (Müşteri) Odaklı Kurulumlar</li>
-                    <li><i class="fa-solid fa-check"></i> Şeffaf ve Anlık Performans Raporlama</li>
-                </ul>
+                <div>
+                    <i class="fa-solid fa-rectangle-ad" style="font-size: 2.2rem; color: var(--accent-cyan);"></i>
+                    <h3>Meta & Google Reklam Yönetimi</h3>
+                    <p>Reklam bütçenizi boşa harcamadan, hedeflenmiş kitlelere ulaşarak yüksek ROAS elde etmenizi sağlıyoruz.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Yapay Zeka Destekli Hedef Kitle Analizi</li>
+                        <li><i class="fa-solid fa-check"></i> Satış & Lead (Müşteri) Odaklı Kurulumlar</li>
+                        <li><i class="fa-solid fa-check"></i> Şeffaf ve Anlık Performans Raporlama</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/905411894187?text=Merhaba,%20Meta%20ve%20Google%20reklam%20y%C3%B6netimi%20hizmetiniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="service-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Reklam Teklifi Al
+                </a>
             </div>
 
             <div class="service-card">
-                <i class="fa-solid fa-laptop-code" style="font-size: 2.2rem; color: var(--primary-glow);"></i>
-                <h3>Hızlı & Modern Web Tasarım</h3>
-                <p>Hantal siteleri unutun. Saliseler içinde açılan, dönüşümü yüksek modern web sayfaları inşa ediyoruz.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> %100 Mobil ve Tablet Uyumlu Yapı</li>
-                    <li><i class="fa-solid fa-check"></i> Sıfır Sunucu Maliyetli Vercel Altyapısı</li>
-                    <li><i class="fa-solid fa-check"></i> WhatsApp Entegreli Dönüşüm Sayfaları</li>
-                </ul>
+                <div>
+                    <i class="fa-solid fa-laptop-code" style="font-size: 2.2rem; color: var(--primary-glow);"></i>
+                    <h3>Hızlı & Modern Web Tasarım</h3>
+                    <p>Hantal siteleri unutun. Saliseler içinde açılan, dönüşümü yüksek modern web sayfaları inşa ediyoruz.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> %100 Mobil ve Tablet Uyumlu Yapı</li>
+                        <li><i class="fa-solid fa-check"></i> Sıfır Sunucu Maliyetli Vercel Altyapısı</li>
+                        <li><i class="fa-solid fa-check"></i> WhatsApp Entegreli Dönüşüm Sayfaları</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/905411894187?text=Merhaba,%20web%20tasar%C4%B1m%20ve%20yaz%C4%B1l%C4%B1m%20hizmetiniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="service-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Site Teklifi Al
+                </a>
             </div>
 
             <div class="service-card">
-                <i class="fa-solid fa-magnifying-glass-chart" style="font-size: 2.2rem; color: #f59e0b;"></i>
-                <h3>SEO & Arama Motoru Büyümesi</h3>
-                <p>Google algoritmalarına tam uyumlu stratejilerle markanızı organik aramalarda zirveye taşıyoruz.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Teknik SEO Audit & Sayfa Hızlandırma</li>
-                    <li><i class="fa-solid fa-check"></i> Sektörel Anahtar Kelime Stratejileri</li>
-                    <li><i class="fa-solid fa-check"></i> Google Harita & Yerel Büyüme</li>
-                </ul>
+                <div>
+                    <i class="fa-solid fa-magnifying-glass-chart" style="font-size: 2.2rem; color: #f59e0b;"></i>
+                    <h3>SEO & Arama Motoru Büyümesi</h3>
+                    <p>Google algoritmalarına tam uyumlu stratejilerle markanızı organik aramalarda zirveye taşıyoruz.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Teknik SEO Audit & Sayfa Hızlandırma</li>
+                        <li><i class="fa-solid fa-check"></i> Sektörel Anahtar Kelime Stratejileri</li>
+                        <li><i class="fa-solid fa-check"></i> Google Harita & Yerel Büyüme</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/905411894187?text=Merhaba,%20SEO%20ve%20Google%20Harita%20b%C3%BCy%C3%BCmesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="service-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> SEO Teklifi Al
+                </a>
             </div>
 
             <div class="service-card">
-                <i class="fa-solid fa-pen-nib" style="font-size: 2.2rem; color: #ec4899;"></i>
-                <h3>Sosyal Medya & Kreatif Tasarım</h3>
-                <p>Sıkıcı kurumsallıktan uzak, dikkat çekici ve estetik içeriklerle sosyal medyada fark yaratın.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Trendlere Uygun İçerik Planlaması</li>
-                    <li><i class="fa-solid fa-check"></i> Yüksek Tıklama Alan Reklam Görselleri</li>
-                    <li><i class="fa-solid fa-check"></i> Marka Dili ve Görsel Kimlik Tasarımı</li>
-                </ul>
+                <div>
+                    <i class="fa-solid fa-pen-nib" style="font-size: 2.2rem; color: #ec4899;"></i>
+                    <h3>Sosyal Medya & Kreatif Tasarım</h3>
+                    <p>Sıkıcı kurumsallıktan uzak, dikkat çekici ve estetik içeriklerle sosyal medyada fark yaratın.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Trendlere Uygun İçerik Planlaması</li>
+                        <li><i class="fa-solid fa-check"></i> Yüksek Tıklama Alan Reklam Görselleri</li>
+                        <li><i class="fa-solid fa-check"></i> Marka Dili ve Görsel Kimlik Tasarımı</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/905411894187?text=Merhaba,%20sosyal%20medya%20ve%20kreatif%20tasar%C4%B1m%20hizmetiniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="service-btn" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Tasarım Teklifi Al
+                </a>
             </div>
         </div>
 
