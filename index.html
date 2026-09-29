@@ -1,361 +1,367 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yavaşoğlu Digital | Yenilikçi & Dinamik Reklam Ajansı</title>
-
-    <!-- Favicon & Mobil Simge (Y Monogram Logo) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%2338bdf8'/><stop offset='100%' stop-color='%236366f1'/></linearGradient><linearGradient id='g2' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%236366f1'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%23080b11'/><path d='M20 20 L45 55 L45 85 L35 85 L35 60 L12 28 Z' fill='url(%23g1)'/><path d='M80 20 L55 55 L55 85 L65 85 L65 60 L88 28 Z' fill='url(%23g1)'/><circle cx='50' cy='30' r='8' fill='url(%23g2)'/><polygon points='50,45 62,60 38,60' fill='url(%23g2)' opacity='0.8'/></svg>">
-
-    <!-- Open Graph (WhatsApp, Instagram, Facebook Paylaşım Kartı) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Yavaşoğlu Digital | Yenilikçi & Dinamik Reklam Ajansı">
-    <meta property="og:description" content="Genç, dinamik ve yapay zeka destekli reklam yönetimi, hızlı web tasarım ve SEO çözümleri. Markanızı dijitalde büyütün.">
-    <meta property="og:url" content="https://yavasogludigital.vercel.app">
-    <meta property="og:site_name" content="Yavaşoğlu Digital">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Yavaşoğlu Digital | Yenilikçi & Dinamik Reklam Ajansı">
-    <meta name="twitter:description" content="Genç, dinamik ve yapay zeka destekli reklam yönetimi, hızlı web tasarım ve SEO çözümleri.">
-
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-color: #080b11;
-            --card-bg: rgba(22, 27, 38, 0.7);
-            --primary-glow: #6366f1;
-            --accent-cyan: #38bdf8;
-            --accent-emerald: #10b981;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.08);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
-
-        .glow-1, .glow-2 {
-            position: absolute; width: 450px; height: 450px; border-radius: 50%; filter: blur(140px); z-index: -1; opacity: 0.4;
-        }
-        .glow-1 { top: -100px; left: -100px; background: var(--primary-glow); }
-        .glow-2 { top: 300px; right: -100px; background: var(--accent-cyan); }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-        nav {
-            display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border-color);
-        }
-
-        .hero { padding: 80px 0 40px; text-align: center; position: relative; }
-        .badge {
-            display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.12);
-            border: 1px solid rgba(99, 102, 241, 0.3); color: #a5b4fc; padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
-        }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 20px; letter-spacing: -1.5px; }
-        .hero h1 span { background: linear-gradient(90deg, var(--accent-cyan), var(--primary-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 720px; margin: 0 auto 36px; }
-
-        .btn-whatsapp {
-            display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            color: white; padding: 16px 36px; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-decoration: none;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); transition: all 0.3s ease;
-        }
-        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37, 211, 102, 0.45); }
-
-        /* Metrik Sayacı */
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0 80px; text-align: center;
-        }
-        .stat-card {
-            background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); padding: 24px; border-radius: 16px;
-        }
-        .stat-card h3 { font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); }
-        .stat-card p { font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; }
-
-        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 40px 0 80px; }
-        .pillar-card {
-            background: var(--card-bg); border: 1px solid var(--border-color); padding: 24px; border-radius: 16px; backdrop-filter: blur(10px); text-align: center; transition: 0.3s;
-        }
-        .pillar-card:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-5px); }
-        .pillar-icon { font-size: 2rem; margin-bottom: 12px; color: var(--accent-cyan); }
-
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2.2rem; font-weight: 800; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 80px; }
-        .service-card {
-            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 36px; backdrop-filter: blur(12px); position: relative; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .service-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-cyan), var(--primary-glow)); opacity: 0; transition: 0.3s;
-        }
-        .service-card:hover { transform: translateY(-8px); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .service-card:hover::before { opacity: 1; }
-        .service-card h3 { font-size: 1.4rem; margin: 16px 0 10px; color: #fff; }
-        .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
-        .service-list { list-style: none; margin-bottom: 24px; }
-        .service-list li { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .service-list li i { color: var(--accent-emerald); font-size: 0.8rem; }
-
-        .service-btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--accent-cyan); padding: 10px 20px; border-radius: 12px; text-decoration: none; font-size: 0.9rem; font-weight: 700; transition: all 0.3s ease;
-        }
-        .service-btn:hover { background: var(--accent-cyan); color: #080b11; }
-
-        /* Vaka Çalışmaları (Portfolyo) */
-        .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 80px; }
-        .case-card {
-            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; position: relative;
-        }
-        .case-tag { font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-        .case-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
-        .case-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px; }
-        .case-result { background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--accent-emerald); padding: 10px 14px; border-radius: 4px; font-weight: 700; font-size: 0.9rem; color: #a7f3d0; }
-
-        /* SSS Alanı */
-        .faq-grid { max-width: 800px; margin: 0 auto 80px; display: flex; flex-direction: column; gap: 16px; }
-        .faq-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px 24px; }
-        .faq-item h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-        .faq-item h3 i { color: var(--accent-cyan); }
-        .faq-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-
-        .floating-whatsapp {
-            position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5); z-index: 1000; text-decoration: none; transition: all 0.3s;
-        }
-        .floating-whatsapp:hover { transform: scale(1.1); }
-
-        footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b11">
+  <title>Yavaşoğlu Digital | Dijital Reklam, Web Tasarım ve SEO</title>
+  <meta name="description" content="Yavaşoğlu Digital; Meta ve Google reklam yönetimi, hızlı web tasarım, SEO ve sosyal medya çözümleriyle markaların dijital büyümesine yardımcı olur.">
+  <link rel="canonical" href="https://yavasogludigital.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yavaşoğlu Digital | Markanız için dijital büyüme">
+  <meta property="og:description" content="Reklam yönetimi, web tasarım, SEO ve yaratıcı içerik çözümleri.">
+  <meta property="og:url" content="https://yavasogludigital.vercel.app/">
+  <meta property="og:site_name" content="Yavaşoğlu Digital">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23080b11'/%3E%3Cpath d='M12 13 29 34v17h7V34l17-21-8-5-13 17L20 8z' fill='%2338bdf8'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Yavaşoğlu Digital",
+    "url": "https://yavasogludigital.vercel.app/",
+    "telephone": "+90-541-189-41-87",
+    "description": "Dijital reklam yönetimi, web tasarım, SEO ve sosyal medya hizmetleri."
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b11;
+      --panel: #111722;
+      --panel-2: #0d121b;
+      --text: #f8fafc;
+      --muted: #b4c0d0;
+      --cyan: #38bdf8;
+      --blue: #818cf8;
+      --green: #25d366;
+      --border: rgba(203, 213, 225, .15);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      margin: 0; min-width: 320px; background: var(--bg); color: var(--text);
+      font: 16px/1.65 "Plus Jakarta Sans", system-ui, sans-serif; overflow-x: hidden;
+    }
+    body::before, body::after {
+      content: ""; position: fixed; width: 420px; height: 420px; border-radius: 50%;
+      filter: blur(150px); opacity: .17; pointer-events: none; z-index: -1;
+    }
+    body::before { background: #5145cd; left: -220px; top: -160px; }
+    body::after { background: #0879a8; right: -230px; top: 340px; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .skip-link { position: absolute; left: -9999px; top: 8px; z-index: 1001; }
+    .skip-link:focus { left: 12px; padding: 10px 14px; color: #07111a; background: white; border-radius: 8px; }
+    :focus-visible { outline: 3px solid #7dd3fc; outline-offset: 4px; }
+    .site-header { position: sticky; top: 0; z-index: 50; background: rgba(8,11,17,.88); border-bottom: 1px solid var(--border); backdrop-filter: blur(16px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; flex: 0 0 auto; }
+    .brand-mark { width: 42px; height: 42px; color: var(--cyan); filter: drop-shadow(0 0 9px rgba(56,189,248,.35)); }
+    .brand-name { display: grid; line-height: 1.05; font-weight: 800; letter-spacing: -.04em; }
+    .brand-name small { margin-top: 4px; color: var(--cyan); letter-spacing: .26em; font-size: .64rem; }
+    .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: .88rem; font-weight: 600; transition: color .2s; }
+    .nav-links a:hover { color: white; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--border); background: var(--panel); border-radius: 12px; color: white; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 12px 20px; border-radius: 999px; border: 1px solid transparent; text-decoration: none; font-weight: 700; transition: transform .2s, box-shadow .2s, background .2s; cursor: pointer; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #04130c; background: linear-gradient(120deg, #34d399, #25d366); box-shadow: 0 9px 28px rgba(37,211,102,.19); }
+    .btn-primary:hover { box-shadow: 0 12px 34px rgba(37,211,102,.3); }
+    .btn-secondary { color: var(--text); border-color: var(--border); background: rgba(255,255,255,.035); }
+    .hero { text-align: center; padding: 86px 0 48px; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; padding: 7px 14px; color: #c7d2fe; background: rgba(99,102,241,.14); border: 1px solid rgba(129,140,248,.35); border-radius: 999px; font-size: .78rem; font-weight: 700; letter-spacing: .04em; }
+    h1, h2, h3, p { margin-top: 0; }
+    .hero h1 { max-width: 920px; margin: 24px auto 18px; font-size: clamp(2.35rem, 5vw, 4.3rem); line-height: 1.1; letter-spacing: -.055em; }
+    .gradient-text { background: linear-gradient(90deg, var(--cyan), var(--blue)); color: transparent; -webkit-background-clip: text; background-clip: text; }
+    .hero-copy { max-width: 740px; margin: 0 auto 28px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.18rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .microcopy { margin: 15px 0 0; color: #9eacbf; font-size: .82rem; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 22px 0 72px; }
+    .stat { padding: 23px 16px; text-align: center; border: 1px solid var(--border); border-radius: 16px; background: rgba(255,255,255,.025); }
+    .stat strong { display: block; color: var(--cyan); font-size: clamp(1.65rem, 3vw, 2.25rem); line-height: 1.2; }
+    .stat span { display: block; margin-top: 7px; color: var(--muted); font-size: .88rem; }
+    .stats-note { grid-column: 1 / -1; margin: -4px 0 0; color: #96a4b6; text-align: center; font-size: .76rem; }
+    .section { padding: 28px 0 76px; }
+    .section-heading { max-width: 720px; margin: 0 auto 34px; text-align: center; }
+    .section-heading .kicker { margin-bottom: 8px; color: var(--cyan); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .section-heading h2 { margin-bottom: 10px; font-size: clamp(1.8rem, 3.5vw, 2.55rem); line-height: 1.2; letter-spacing: -.04em; }
+    .section-heading p { margin-bottom: 0; color: var(--muted); }
+    .values { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 74px; }
+    .value-card, .service-card, .case-card, .step-card { border: 1px solid var(--border); border-radius: 18px; background: rgba(17,23,34,.84); }
+    .value-card { padding: 22px 18px; text-align: center; }
+    .icon { color: var(--cyan); font-size: 1.8rem; }
+    .value-card h3 { margin: 9px 0 4px; font-size: 1rem; }
+    .value-card p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .services { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .service-card { padding: 27px; display: flex; flex-direction: column; justify-content: space-between; min-height: 330px; transition: transform .2s, border-color .2s; }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.45); }
+    .service-card h3 { margin: 13px 0 8px; font-size: 1.27rem; }
+    .service-card p { color: var(--muted); margin-bottom: 14px; }
+    .service-card .fit { font-size: .86rem; color: #d5dfeb; }
+    .service-card .fit strong { color: white; }
+    .service-list { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 8px; }
+    .service-list li { display: flex; gap: 10px; color: #d3dce7; font-size: .9rem; }
+    .service-list i { color: #34d399; margin-top: 5px; font-size: .78rem; }
+    .service-link { align-self: flex-start; color: #7dd3fc; font-weight: 700; text-decoration: none; }
+    .service-link:hover { color: white; }
+    .cases { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .case-card { padding: 24px; }
+    .case-tag { display: inline-block; margin-bottom: 12px; color: #6ee7b7; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .case-card h3 { margin-bottom: 10px; font-size: 1.15rem; line-height: 1.35; }
+    .case-card p { margin-bottom: 16px; color: var(--muted); font-size: .9rem; }
+    .case-result { padding: 11px 13px; border-left: 3px solid #34d399; border-radius: 5px; color: #c5f5df; background: rgba(16,185,129,.1); font-size: .88rem; font-weight: 700; }
+    .disclaimer { margin: 15px 0 0; color: #9eacbf; text-align: center; font-size: .78rem; }
+    .process { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; counter-reset: steps; }
+    .step-card { position: relative; padding: 23px 20px; counter-increment: steps; }
+    .step-card::before { content: "0" counter(steps); display: block; margin-bottom: 15px; color: var(--cyan); font-size: .84rem; font-weight: 800; letter-spacing: .1em; }
+    .step-card h3 { margin-bottom: 7px; font-size: 1rem; }
+    .step-card p { margin: 0; color: var(--muted); font-size: .87rem; }
+    .faq { max-width: 850px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq details { padding: 18px 20px; border: 1px solid var(--border); border-radius: 14px; background: rgba(17,23,34,.78); }
+    .faq summary { display: flex; justify-content: space-between; gap: 16px; cursor: pointer; font-weight: 700; list-style: none; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--cyan); font-size: 1.25rem; line-height: 1; }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { margin: 12px 0 0; color: var(--muted); font-size: .92rem; }
+    .contact-panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: 34px; align-items: start; padding: clamp(22px, 5vw, 42px); border: 1px solid rgba(56,189,248,.24); border-radius: 24px; background: linear-gradient(140deg, rgba(28,38,57,.95), rgba(13,18,27,.96)); }
+    .contact-copy h2 { margin-bottom: 12px; font-size: clamp(1.75rem, 3vw, 2.35rem); line-height: 1.18; }
+    .contact-copy p { color: var(--muted); }
+    .contact-copy .contact-direct { color: #dce7f3; font-weight: 700; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: .86rem; font-weight: 700; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid rgba(203,213,225,.22); border-radius: 10px; padding: 12px 13px; color: var(--text); background: #0a1019; }
+    .field input::placeholder, .field textarea::placeholder { color: #95a4b7; }
+    .field textarea { min-height: 96px; resize: vertical; }
+    .form-note, .form-status { grid-column: 1 / -1; margin: 0; color: #aebdce; font-size: .77rem; }
+    .form-status { min-height: 1.3em; color: #a7f3d0; }
+    .contact-form .btn { justify-self: start; }
+    footer { margin-top: 72px; border-top: 1px solid var(--border); padding: 28px 0 38px; color: var(--muted); font-size: .86rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+    .footer-inner p { margin: 0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { text-decoration: none; }
+    .floating-whatsapp { position: fixed; right: 22px; bottom: 22px; z-index: 40; display: grid; width: 58px; height: 58px; place-items: center; border: 2px solid rgba(255,255,255,.18); border-radius: 50%; color: white; background: #20bd5a; box-shadow: 0 8px 25px rgba(0,0,0,.35); text-decoration: none; font-size: 1.7rem; }
+    .floating-whatsapp:hover { transform: translateY(-3px); }
+    @media (max-width: 900px) {
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: .82rem; }
+      .nav-actions .btn { padding-inline: 14px; }
+      .values, .process { grid-template-columns: repeat(2,1fr); }
+      .cases { grid-template-columns: 1fr; }
+      .contact-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(var(--max), calc(100% - 32px)); }
+      .nav { min-height: 68px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links { display: none; position: absolute; top: calc(100% + 1px); left: 0; right: 0; padding: 12px 20px 18px; flex-direction: column; align-items: stretch; gap: 0; background: #0b1018; border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .nav-links li a { display: block; padding: 12px 4px; font-size: .95rem; }
+      .nav-actions > .btn { display: none; }
+      .hero { padding: 64px 0 32px; }
+      .hero h1 { font-size: clamp(2.15rem, 10vw, 3rem); }
+      .hero-copy { font-size: 1rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; max-width: 380px; margin-inline: auto; }
+      .stats { grid-template-columns: repeat(2,1fr); gap: 11px; padding-bottom: 54px; }
+      .stat { padding: 18px 10px; }
+      .stat span { font-size: .78rem; }
+      .section { padding-bottom: 58px; }
+      .services { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; padding: 23px; }
+      .contact-form { grid-template-columns: 1fr; }
+      .field.full, .form-note, .form-status { grid-column: auto; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      .floating-whatsapp { right: 15px; bottom: 15px; width: 54px; height: 54px; }
+    }
+    @media (max-width: 440px) {
+      .values, .process { grid-template-columns: 1fr; }
+      .brand-name { font-size: .93rem; }
+      .brand-mark { width: 36px; height: 36px; }
+      .badge { font-size: .68rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#ana-icerik">Ana içeriğe geç</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Ana menü">
+      <a class="brand" href="#anasayfa" aria-label="Yavaşoğlu Digital ana sayfa">
+        <svg class="brand-mark" viewBox="0 0 100 100" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="brand-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#6366f1"/></linearGradient></defs>
+          <path d="M20 20 45 55v30H35V60L12 28zm60 0L55 55v30h10V60l23-32z" fill="url(#brand-gradient)"/><circle cx="50" cy="30" r="8" fill="#10b981"/><path d="m50 45 12 15H38z" fill="#6366f1"/>
+        </svg>
+        <span class="brand-name">YAVAŞOĞLU<small>DIGITAL</small></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hizmetler">Hizmetler</a></li>
+        <li><a href="#basarilar">Başarı hikâyeleri</a></li>
+        <li><a href="#surec">Çalışma süreci</a></li>
+        <li><a href="#sss">SSS</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="#iletisim"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i> Teklif al</a>
+        <button class="menu-toggle" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+  </header>
 
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
+  <main id="ana-icerik">
+    <section class="hero container" id="anasayfa">
+      <span class="eyebrow"><i class="fa-solid fa-bolt" aria-hidden="true"></i> DİJİTALDE BÜYÜME ORTAĞINIZ</span>
+      <h1>Markanızı dijitalde <span class="gradient-text">ölçülebilir sonuçlarla</span> büyütün</h1>
+      <p class="hero-copy">Meta ve Google reklamları, hızlı web tasarım, SEO ve yaratıcı içerik çözümlerini tek bir büyüme planında birleştiriyoruz.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#iletisim"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Projenizi konuşalım</a>
+        <a class="btn btn-secondary" href="#basarilar">Başarı hikâyelerini incele <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+      </div>
+      <p class="microcopy">İlk görüşme ücretsizdir. İhtiyacınızı dinleyip uygun yol haritasını birlikte belirleyelim.</p>
+    </section>
 
-    <div class="container">
-        <!-- Header & Logo -->
-        <nav>
-            <a href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));">
-                    <defs>
-                        <linearGradient id="logo-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#38bdf8" />
-                            <stop offset="100%" stop-color="#6366f1" />
-                        </linearGradient>
-                        <linearGradient id="logo-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#6366f1" />
-                            <stop offset="100%" stop-color="#10b981" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M20 20 L45 55 L45 85 L35 85 L35 60 L12 28 Z" fill="url(#logo-grad-1)" />
-                    <path d="M80 20 L55 55 L55 85 L65 85 L65 60 L88 28 Z" fill="url(#logo-grad-1)" />
-                    <circle cx="50" cy="30" r="8" fill="url(#logo-grad-2)" />
-                    <polygon points="50,45 62,60 38,60" fill="url(#logo-grad-2)" opacity="0.8" />
-                </svg>
-                <div style="display: flex; flex-direction: column; line-height: 1;">
-                    <span style="font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px; color: #fff;">YAVAŞOĞLU</span>
-                    <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; color: #38bdf8; margin-top: 2px;">DIGITAL</span>
-                </div>
-            </a>
-            <a href="https://wa.me/905411894187?text=Merhaba,%20dijital%20reklam%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-whatsapp" style="padding: 10px 22px; font-size: 0.9rem;">
-                <i class="fa-brands fa-whatsapp"></i> İletişim
-            </a>
-        </nav>
+    <section class="stats container" aria-label="Ajans performans göstergeleri">
+      <div class="stat"><strong>₺1.5M+</strong><span>Yönetilen reklam bütçesi</span></div>
+      <div class="stat"><strong>4.2x</strong><span>Ortalama ROAS</span></div>
+      <div class="stat"><strong>50+</strong><span>Tamamlanan proje</span></div>
+      <div class="stat"><strong>%98</strong><span>Müşteri memnuniyeti</span></div>
+      <p class="stats-note">Sonuçlar çalışma dönemi, sektör ve bütçeye göre değişebilir. Yayın öncesinde rakamları güncel verilerinizle doğrulayın.</p>
+    </section>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="badge"><i class="fa-solid fa-bolt"></i> YENİ NESİL DİJİTAL REKLAM AJANSI</div>
-            <h1>Geleneksel Kuralları Yıkıyoruz:<br><span>Genç, Dinamik & Uzman</span></h1>
-            <p>Eski nesil ajans kalıplarını bir kenara bırakın. Sektör tecrübemizi yapay zeka araçları ve yeni nesil pazarlama stratejileriyle birleştirip markanızı büyütüyoruz.</p>
-            <a href="https://wa.me/905411894187?text=Merhaba,%20dijital%20reklam%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp İle Projenizi Konuşalım
-            </a>
-        </section>
+    <section class="section container" aria-labelledby="neden-title">
+      <div class="values">
+        <article class="value-card"><i class="fa-solid fa-rocket icon" aria-hidden="true"></i><h3>Hızlı hareket</h3><p>Fırsatları takip eden, çevik bir çalışma biçimi.</p></article>
+        <article class="value-card"><i class="fa-solid fa-brain icon" aria-hidden="true"></i><h3>Akıllı optimizasyon</h3><p>Veri ve yeni araçlarla sürekli iyileştirme.</p></article>
+        <article class="value-card"><i class="fa-solid fa-chart-line icon" aria-hidden="true"></i><h3>Şeffaf raporlama</h3><p>Harcama ve performansı anlaşılır şekilde görün.</p></article>
+        <article class="value-card"><i class="fa-solid fa-bullseye icon" aria-hidden="true"></i><h3>Net hedefler</h3><p>Çalışmayı baştan belirlenen hedeflere göre izleyin.</p></article>
+      </div>
+      <div class="section-heading" id="hizmetler">
+        <p class="kicker">Hizmetlerimiz</p><h2 id="neden-title">İhtiyacınıza uygun dijital büyüme planı</h2><p>İş hedefinize göre tek bir hizmetle başlayabilir veya kanalları birlikte yönetebiliriz.</p>
+      </div>
+      <div class="services">
+        <article class="service-card">
+          <div><i class="fa-solid fa-rectangle-ad icon" aria-hidden="true"></i><h3>Meta & Google reklam yönetimi</h3><p>Doğru ölçümleme ve düzenli optimizasyonla reklam bütçenizden daha fazla verim alın.</p><p class="fit"><strong>Kimler için:</strong> Satışlarını artırmak veya nitelikli müşteri adayı toplamak isteyen işletmeler.</p>
+            <ul class="service-list"><li><i class="fa-solid fa-check" aria-hidden="true"></i> Kampanya ve dönüşüm ölçümleme kurulumu</li><li><i class="fa-solid fa-check" aria-hidden="true"></i> Hedef kitle ve kreatif testleri</li><li><i class="fa-solid fa-check" aria-hidden="true"></i> Düzenli performans raporu</li></ul></div>
+          <a class="service-link" href="#iletisim">Reklam planı iste <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="service-card">
+          <div><i class="fa-solid fa-laptop-code icon" aria-hidden="true"></i><h3>Web tasarım & geliştirme</h3><p>Hızlı, mobil uyumlu ve ziyaretçiyi net bir sonraki adıma yönlendiren web sayfaları.</p><p class="fit"><strong>Kimler için:</strong> Yeni müşteri kazanmak veya dijitalde güven veren bir vitrin oluşturmak isteyen markalar.</p>
+            <ul class="service-list"><li><i class="fa-solid fa-check" aria-hidden="true"></i> Mobil ve tablet uyumlu tasarım</li><li><i class="fa-solid fa-check" aria-hidden="true"></i> Temel teknik SEO ve hız düzenlemeleri</li><li><i class="fa-solid fa-check" aria-hidden="true"></i> Form ve WhatsApp dönüşüm akışı</li></ul></div>
+          <a class="service-link" href="#iletisim">Site projesi konuşalım <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="service-card">
+          <div><i class="fa-solid fa-magnifying-glass-chart icon" aria-hidden="true"></i><h3>SEO & yerel görünürlük</h3><p>Arama yapan kişilerin sizi bulmasına yardımcı olacak teknik ve içerik temellerini güçlendirin.</p><p class="fit"><strong>Kimler için:</strong> Organik trafik ve yerel aramalardan müşteri kazanmayı hedefleyen işletmeler.</p>
+            <ul class="service-list"><li><i class="fa-solid fa-check" aria-hidden="true"></i> Teknik SEO kontrolü ve öncelik listesi</li><li><i class="fa-solid fa-check" aria-hidden="true"></i> Anahtar kelime ve içerik planı</li><li><i class="fa-solid fa-check" aria-hidden="true"></i> Google İşletme Profili düzenlemeleri</li></ul></div>
+          <a class="service-link" href="#iletisim">SEO değerlendirmesi iste <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+        <article class="service-card">
+          <div><i class="fa-solid fa-pen-nib icon" aria-hidden="true"></i><h3>Sosyal medya & kreatif içerik</h3><p>Markanızın kimliğine uyan ve kampanyalarınızı destekleyen içerikler planlayın.</p><p class="fit"><strong>Kimler için:</strong> Sosyal medyada tutarlı görünmek ve reklam kreatiflerini geliştirmek isteyen markalar.</p>
+            <ul class="service-list"><li><i class="fa-solid fa-check" aria-hidden="true"></i> Aylık içerik planlaması</li><li><i class="fa-solid fa-check" aria-hidden="true"></i> Reklam görseli ve kısa video fikirleri</li><li><i class="fa-solid fa-check" aria-hidden="true"></i> Marka dili ve görsel tutarlılık</li></ul></div>
+          <a class="service-link" href="#iletisim">İçerik planı iste <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </article>
+      </div>
+    </section>
 
-        <!-- Metrik Sayacı (Trust Badges) -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>₺1.5M+</h3>
-                <p>Yönetilen Reklam Bütçesi</p>
-            </div>
-            <div class="stat-card">
-                <h3>4.2x</h3>
-                <p>Ortalama ROAS (Reklam Getirisi)</p>
-            </div>
-            <div class="stat-card">
-                <h3>50+</h3>
-                <p>Tamamlanan Proje</p>
-            </div>
-            <div class="stat-card">
-                <h3>%98</h3>
-                <p>Müşteri Memnuniyeti</p>
-            </div>
-        </div>
+    <section class="section container" id="basarilar" aria-labelledby="cases-title">
+      <div class="section-heading"><p class="kicker">Başarı hikâyeleri</p><h2 id="cases-title">Çalışmalarımızın sonuçları</h2><p>Her projede başlangıç noktası ve hedef farklıdır; burada mevcut örnek sonuçlar yer alıyor.</p></div>
+      <div class="cases">
+        <article class="case-card"><span class="case-tag">E-ticaret & moda</span><h3>Reklam maliyetini düşürme ve satışları artırma</h3><p>Meta kampanyaları yeniden yapılandırıldı; hedef kitle ve kreatif testleri planlandı.</p><div class="case-result">Paylaşılan sonuç: bütçede %30 düşüş, satışlarda 2,8x artış</div></article>
+        <article class="case-card"><span class="case-tag">Hizmet sektörü</span><h3>Nitelikli müşteri talebi oluşturma</h3><p>Google Ads ve test edilen açılış sayfasıyla talep toplama akışı iyileştirildi.</p><div class="case-result">Paylaşılan sonuç: ayda +140 form, %65 dönüşüm</div></article>
+        <article class="case-card"><span class="case-tag">Yerel işletme</span><h3>Harita ve sosyal medya görünürlüğü</h3><p>Yerel arama düzenlemeleri ve Instagram reklamlarıyla mağaza trafiği hedeflendi.</p><div class="case-result">Paylaşılan sonuç: harita aramalarında ilk 3, ziyaretlerde %210 artış</div></article>
+      </div>
+      <p class="disclaimer">Sonuçlar vaka ve çalışma dönemine özeldir; benzer sonuçlar garanti edilmez. Mümkünse her vaka için dönem, başlangıç verisi ve ölçüm yöntemini de ekleyin.</p>
+    </section>
 
-        <!-- Güç Sütunları -->
-        <div class="pillars">
-            <div class="pillar-card">
-                <i class="fa-solid fa-rocket pillar-icon"></i>
-                <h3>Genç & Dinamik</h3>
-                <p style="font-size:0.85rem; color:var(--text-muted);">Trendleri anlık takip eden enerjik yapı.</p>
-            </div>
-            <div class="pillar-card">
-                <i class="fa-solid fa-brain pillar-icon"></i>
-                <h3>Yenilikçi (AI Native)</h3>
-                <p style="font-size:0.85rem; color:var(--text-muted);">Yapay zeka ve en son reklam teknolojileri.</p>
-            </div>
-            <div class="pillar-card">
-                <i class="fa-solid fa-chart-line pillar-icon"></i>
-                <h3>Tecrübeli & Yetkin</h3>
-                <p style="font-size:0.85rem; color:var(--text-muted);">Yılların getirdiği sektör uzmanlığı.</p>
-            </div>
-            <div class="pillar-card">
-                <i class="fa-solid fa-bullseye pillar-icon"></i>
-                <h3>Sonuç Odaklı</h3>
-                <p style="font-size:0.85rem; color:var(--text-muted);">Rakamlarla ölçülebilir satış ve büyüme.</p>
-            </div>
-        </div>
+    <section class="section container" id="surec" aria-labelledby="process-title">
+      <div class="section-heading"><p class="kicker">Çalışma süreci</p><h2 id="process-title">İlk görüşmeden ölçülebilir iyileştirmeye</h2><p>Ne yapılacağını ve başarının nasıl ölçüleceğini en başta netleştiriyoruz.</p></div>
+      <div class="process">
+        <article class="step-card"><h3>Tanışma ve ihtiyaç</h3><p>Hedefinizi, mevcut kanallarınızı ve önceliklerinizi dinliyoruz.</p></article>
+        <article class="step-card"><h3>Analiz ve yol haritası</h3><p>Ölçümleme ve mevcut durumu inceleyip uygulanabilir bir plan çıkarıyoruz.</p></article>
+        <article class="step-card"><h3>Uygulama ve test</h3><p>Onaylanan işleri yayına alıp farklı seçenekleri kontrollü biçimde test ediyoruz.</p></article>
+        <article class="step-card"><h3>Rapor ve iyileştirme</h3><p>Sonuçları paylaşıyor, öğrenilenlere göre bir sonraki adımı belirliyoruz.</p></article>
+      </div>
+    </section>
 
-        <!-- Hizmetlerimiz -->
-        <div class="section-title">
-            <h2>Neler Yapıyoruz?</h2>
-            <p style="color:var(--text-muted)">Markanızın dijitaldeki tüm dönüşüm sürecini yönetiyoruz.</p>
-        </div>
+    <section class="section container" id="sss" aria-labelledby="faq-title">
+      <div class="section-heading"><p class="kicker">Sık sorulan sorular</p><h2 id="faq-title">Karar vermeden önce bilmeniz gerekenler</h2></div>
+      <div class="faq">
+        <details><summary>Reklam hesapları kimin adına açılıyor?</summary><p>Reklam hesapları ve paneller sizin veya şirketinizin sahipliğinde olur. Ajansa gereken erişim yetkisi tanımlanır; hesap sahipliği sizde kalır.</p></details>
+        <details><summary>Raporlama ne sıklıkla yapılıyor?</summary><p>Raporlama sıklığını proje kapsamına göre belirleriz. Harcama, tıklama ve dönüşüm gibi temel metrikleri anlaşılır biçimde paylaşırız.</p></details>
+        <details><summary>Bir web sitesi ne kadar sürede tamamlanır?</summary><p>Süre; sayfa sayısı, içeriklerin hazır olma durumu ve gerekli işlevlere göre değişir. Kapsamı netleştirdikten sonra takvimi teklifimizde belirtiriz.</p></details>
+        <details><summary>Hizmet fiyatı nasıl belirleniyor?</summary><p>Fiyat; hizmet kapsamı, iş yükü ve hedeflere göre belirlenir. Kısa bir görüşmenin ardından ihtiyacınıza uygun teklif hazırlayabiliriz.</p></details>
+        <details><summary>Çalışmaya başlamak için ne gerekiyor?</summary><p>Önce hedefinizi ve mevcut durumunuzu konuşuruz. İş kapsamı ve erişimler netleştikten sonra başlangıç planını birlikte onaylarız.</p></details>
+      </div>
+    </section>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <div>
-                    <i class="fa-solid fa-rectangle-ad" style="font-size: 2.2rem; color: var(--accent-cyan);"></i>
-                    <h3>Meta & Google Reklam Yönetimi</h3>
-                    <p>Reklam bütçenizi boşa harcamadan, hedeflenmiş kitlelere ulaşarak yüksek ROAS elde etmenizi sağlıyoruz.</p>
-                    <ul class="service-list">
-                        <li><i class="fa-solid fa-check"></i> Yapay Zeka Destekli Hedef Kitle Analizi</li>
-                        <li><i class="fa-solid fa-check"></i> Satış & Lead (Müşteri) Odaklı Kurulumlar</li>
-                        <li><i class="fa-solid fa-check"></i> Şeffaf ve Anlık Performans Raporlama</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/905411894187?text=Merhaba,%20Meta%20ve%20Google%20reklam%20y%C3%B6netimi%20hizmetiniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="service-btn" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> Reklam Teklifi Al
-                </a>
-            </div>
+    <section class="section container" id="iletisim" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <div class="contact-copy"><p class="kicker">Bir sonraki adım</p><h2 id="contact-title">Projeniz için doğru planı birlikte çıkaralım</h2><p>Ne üzerinde çalışmak istediğinizi kısaca yazın. Bilgileriniz bir mesaj taslağına eklenir; WhatsApp üzerinden göndermeyi siz onaylarsınız.</p><p class="contact-direct"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp: +90 541 189 41 87</p></div>
+        <form class="contact-form" id="lead-form">
+          <div class="field"><label for="name">Adınız</label><input id="name" name="name" autocomplete="name" placeholder="Adınız" required></div>
+          <div class="field"><label for="company">Şirket / marka <span aria-hidden="true">(isteğe bağlı)</span></label><input id="company" name="company" autocomplete="organization" placeholder="Marka adı"></div>
+          <div class="field"><label for="service">İlgilendiğiniz hizmet</label><select id="service" name="service" required><option value="" selected disabled>Seçiniz</option><option>Meta & Google reklam yönetimi</option><option>Web tasarım & geliştirme</option><option>SEO & yerel görünürlük</option><option>Sosyal medya & kreatif içerik</option><option>Birden fazla hizmet</option><option>Henüz emin değilim</option></select></div>
+          <div class="field"><label for="sector">Sektörünüz <span aria-hidden="true">(isteğe bağlı)</span></label><input id="sector" name="sector" placeholder="Örneğin: e-ticaret, sağlık, yerel işletme"></div>
+          <div class="field full"><label for="goal">Hedefiniz veya kısaca ihtiyacınız</label><textarea id="goal" name="goal" placeholder="Örneğin: web sitemden daha fazla teklif almak istiyorum."></textarea></div>
+          <button class="btn btn-primary" type="submit"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp mesaj taslağı oluştur</button>
+          <p class="form-note">Bu form verileri bu sayfada kaydetmez. Butona bastığınızda WhatsApp açılır; mesajı göndermeden önce kontrol edebilirsiniz.</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-            <div class="service-card">
-                <div>
-                    <i class="fa-solid fa-laptop-code" style="font-size: 2.2rem; color: var(--primary-glow);"></i>
-                    <h3>Hızlı & Modern Web Tasarım</h3>
-                    <p>Hantal siteleri unutun. Saliseler içinde açılan, dönüşümü yüksek modern web sayfaları inşa ediyoruz.</p>
-                    <ul class="service-list">
-                        <li><i class="fa-solid fa-check"></i> %100 Mobil ve Tablet Uyumlu Yapı</li>
-                        <li><i class="fa-solid fa-check"></i> Sıfır Sunucu Maliyetli Vercel Altyapısı</li>
-                        <li><i class="fa-solid fa-check"></i> WhatsApp Entegreli Dönüşüm Sayfaları</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/905411894187?text=Merhaba,%20web%20tasar%C4%B1m%20ve%20yaz%C4%B1l%C4%B1m%20hizmetiniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="service-btn" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> Site Teklifi Al
-                </a>
-            </div>
-
-            <div class="service-card">
-                <div>
-                    <i class="fa-solid fa-magnifying-glass-chart" style="font-size: 2.2rem; color: #f59e0b;"></i>
-                    <h3>SEO & Arama Motoru Büyümesi</h3>
-                    <p>Google algoritmalarına tam uyumlu stratejilerle markanızı organik aramalarda zirveye taşıyoruz.</p>
-                    <ul class="service-list">
-                        <li><i class="fa-solid fa-check"></i> Teknik SEO Audit & Sayfa Hızlandırma</li>
-                        <li><i class="fa-solid fa-check"></i> Sektörel Anahtar Kelime Stratejileri</li>
-                        <li><i class="fa-solid fa-check"></i> Google Harita & Yerel Büyüme</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/905411894187?text=Merhaba,%20SEO%20ve%20Google%20Harita%20b%C3%BCy%C3%BCmesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="service-btn" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> SEO Teklifi Al
-                </a>
-            </div>
-
-            <div class="service-card">
-                <div>
-                    <i class="fa-solid fa-pen-nib" style="font-size: 2.2rem; color: #ec4899;"></i>
-                    <h3>Sosyal Medya & Kreatif Tasarım</h3>
-                    <p>Sıkıcı kurumsallıktan uzak, dikkat çekici ve estetik içeriklerle sosyal medyada fark yaratın.</p>
-                    <ul class="service-list">
-                        <li><i class="fa-solid fa-check"></i> Trendlere Uygun İçerik Planlaması</li>
-                        <li><i class="fa-solid fa-check"></i> Yüksek Tıklama Alan Reklam Görselleri</li>
-                        <li><i class="fa-solid fa-check"></i> Marka Dili ve Görsel Kimlik Tasarımı</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/905411894187?text=Merhaba,%20sosyal%20medya%20ve%20kreatif%20tasar%C4%B1m%20hizmetiniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="service-btn" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i> Tasarım Teklifi Al
-                </a>
-            </div>
-        </div>
-
-        <!-- Vaka Çalışmaları (Başarı Hikayeleri) -->
-        <div class="section-title">
-            <h2>Başarı Hikayeleri</h2>
-            <p style="color:var(--text-muted)">Partnerlerimizin dijitaldeki dönüşüm yolculukları.</p>
-        </div>
-
-        <div class="cases-grid">
-            <div class="case-card">
-                <div class="case-tag">E-Ticaret & Moda</div>
-                <h3>Reklam Maliyeti Düşüşü & Satış Artışı</h3>
-                <p>Meta reklam stratejisini sil baştan kurgulayarak yapay zeka hedefleme modelleri entegre ettik.</p>
-                <div class="case-result">Result: Bütçe %30 düştü, Satışlar 2.8x arttı</div>
-            </div>
-
-            <div class="case-card">
-                <div class="case-tag">Hizmet Sektörü</div>
-                <h3>Nitelikli Müşteri Talebi (Lead)</h3>
-                <p>Google Ads ve A/B testli açılış sayfası ile müşteri alma sürecini otomatize ettik.</p>
-                <div class="case-result">Result: Aylık +140 Form / %65 Dönüşüm</div>
-            </div>
-
-            <div class="case-card">
-                <div class="case-tag">Yerel İşletme</div>
-                <h3>Harita & Sosyal Medya Büyümesi</h3>
-                <p>Yerel SEO ve Instagram kreatif reklamlarıyla müşteri trafiğini mağazaya yönlendirdik.</p>
-                <div class="case-result">Result: Harita Aramalarında Top 3 / %210 Ziyaretçi</div>
-            </div>
-        </div>
-
-        <!-- Sıkça Sorulan Sorular -->
-        <div class="section-title">
-            <h2>Çalışma Sürecimiz & SSS</h2>
-            <p style="color:var(--text-muted)">Şeffaf, hızlı ve sonuç odaklı hizmet anlayışımız.</p>
-        </div>
-
-        <div class="faq-grid">
-            <div class="faq-item">
-                <h3><i class="fa-solid fa-circle-question"></i> Reklam hesapları kimin adına açılıyor?</h3>
-                <p>Tüm reklam hesapları ve paneller %100 sizin veya şirketinizin adına kurulur. Tam erişim hakkı sizde kalır, şeffaflık esastır.</p>
-            </div>
-            <div class="faq-item">
-                <h3><i class="fa-solid fa-circle-question"></i> Raporlama ne sıklıkla ve nasıl yapılıyor?</h3>
-                <p>Haftalık ve aylık bazda harcanan bütçe, tıklama, dönüşüm ve ROAS verilerini içeren anlaşılır, sade paneller üzerinden raporlama sunuyoruz.</p>
-            </div>
-            <div class="faq-item">
-                <h3><i class="fa-solid fa-circle-question"></i> Web tasarım ve geliştirme ne kadar sürüyor?</h3>
-                <p>İhtiyaçlarınıza göre sıfır sunucu maliyetli, modern ve hızlı landing page tasarımlarını ortalama 3 ile 5 iş günü içinde canlıya alıyoruz.</p>
-            </div>
-        </div>
+  <footer>
+    <div class="footer-inner container">
+      <p>© <span id="year">2026</span> Yavaşoğlu Digital. Tüm hakları saklıdır.</p>
+      <div class="footer-links"><a href="#hizmetler">Hizmetler</a><a href="#basarilar">Başarı hikâyeleri</a><a href="#iletisim">İletişim</a></div>
     </div>
+  </footer>
+  <a class="floating-whatsapp" href="https://wa.me/905411894187?text=Merhaba%2C%20dijital%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp üzerinden iletişim kur"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
 
-    <!-- Yüzen WhatsApp Butonu -->
-    <a href="https://wa.me/905411894187?text=Merhaba,%20dijital%20reklam%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="floating-whatsapp" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <footer>
-        <p>© 2026 Yavaşoğlu Digital. Tüm hakları saklıdır. — Genç, Dinamik & Yenilikçi Dijital Ajans</p>
-    </footer>
-
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('#nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Menüyü aç' : 'Menüyü kapat');
+      navLinks.classList.toggle('open', !isOpen);
+    });
+    navLinks.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Menüyü aç');
+      }
+    });
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    document.querySelector('#lead-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const lines = [
+        'Merhaba, Yavaşoğlu Digital sitesindeki teklif formunu doldurdum.',
+        `Ad: ${form.get('name')}`,
+        form.get('company') ? `Şirket/marka: ${form.get('company')}` : '',
+        `Hizmet: ${form.get('service')}`,
+        form.get('sector') ? `Sektör: ${form.get('sector')}` : '',
+        form.get('goal') ? `Hedef/ihtiyaç: ${form.get('goal')}` : ''
+      ].filter(Boolean);
+      const whatsappUrl = `https://wa.me/905411894187?text=${encodeURIComponent(lines.join('\n'))}`;
+      const opened = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!opened) window.location.href = whatsappUrl;
+      document.querySelector('#form-status').textContent = 'WhatsApp açılıyor. Mesajı göndermeden önce bilgileri kontrol edebilirsiniz.';
+    });
+  </script>
 </body>
 </html>
